@@ -1,0 +1,9 @@
+[package]
+name = "ds_libs"
+version = "0.1.0"
+authors = ["Kieran McKenzie <kieranjmckenzie@googlemail.com>"]
+
+[dependencies]
+rand = "0.3.16"
+round = "0.1.0"
+num = "0.1.40"
