@@ -35,3 +35,10 @@ fn test_pythagoras_triangletype() {
     assert_eq!(triangle.get_triangle_type(), 'A');
 
 }
+
+//Lin Random
+#[test]
+fn test_linear_random(){
+    assert_eq!(super::linear_random::random(3, 7, 12, 1, 2), 1);
+    assert_eq!(super::linear_random::random(2, 3, 15, 8, 10), 11);
+}

@@ -11,6 +11,15 @@ fn test_bubble_sort() {
     assertions(&mut a);
 }
 #[test]
+fn test_bubble_sort_preserve_indexes() {
+    let mut a = vec![50, 98, 17, 79];
+    let k = super::bubble_sort_preserve_index(&mut a);
+    assert_eq!(k[0], 2);
+    assert_eq!(k[1], 0);
+    assert_eq!(k[2], 3);
+    assert_eq!(k[3], 1);
+}
+#[test]
 fn test_insertion_sort() {
     let mut a = vec![-1, -2, 3, 6, 3];
     super::insertion_sort(&mut a);

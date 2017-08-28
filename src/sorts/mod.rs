@@ -24,10 +24,41 @@ where
                 done = false;
                 v.swap(i, i - 1);
             }
-
         }
         done
     }
+}
+pub fn bubble_sort_preserve_index<T>(v: &mut [T]) -> Vec<u16>
+where
+    T: PartialOrd,
+{
+    let mut k = Vec::with_capacity(v.len());
+    for i in 0..v.len() {
+        k.push(i as u16);
+    }
+
+    let mut n = 0;
+    while {
+        !pass(v, &n, &mut k)
+    }
+    {
+        n += 1;
+    }
+    fn pass<T>(v: &mut [T], n: &usize, k: &mut Vec<u16>) -> bool
+    where
+        T: PartialOrd,
+    {
+        let mut done = true;
+        for i in 1..v.len() - n {
+            if v[i] < v[i - 1] {
+                done = false;
+                v.swap(i, i - 1);
+                k.swap(i, i - 1);
+            }
+        }
+        done
+    }
+    k
 }
 
 #[allow(dead_code)]
