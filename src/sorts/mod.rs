@@ -144,21 +144,20 @@ pub fn quicksort_2(left: usize, right: usize, v: &mut Vec<i32>) {
         while lt < rt {
             if dir {
                 if array[rt] > pivot {
-                    rt = rt - 1;
+                    rt -= 1;
                 } else {
                     array[lt] = array[rt];
-                    lt = lt + 1;
+                    lt += 1;
                     dir = false;
                 }
+            } else if array[lt] < pivot {
+                lt += 1;
             } else {
-                if array[lt] < pivot {
-                    lt = lt + 1;
-                } else {
-                    array[rt] = array[lt];
-                    rt = rt - 1;
-                    dir = true;
-                }
+                array[rt] = array[lt];
+                rt -= 1;
+                dir = true;
             }
+
 
         }
         array[lt] = pivot;

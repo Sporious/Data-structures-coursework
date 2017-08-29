@@ -15,7 +15,7 @@ pub struct Card {
 impl Card {
     pub fn new(s: &str) -> Card {
         let len = s.len() - 1;
-        let mut a = CardNo::new(s);
+        let a = CardNo::new(s);
         println!("\n\n{:?}\n\n", a);
         let valid = a.verify();
         Self {
@@ -71,11 +71,7 @@ impl CardNo {
         let total = self.total();
         let remainder = total * 9 % 10;
         println!("remainder = {}", remainder);
-        if remainder as u8 == self.checkdigit {
-            true
-        } else {
-            false
-        }
+        remainder as u8 == self.checkdigit
     }
 }
 

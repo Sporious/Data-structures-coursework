@@ -41,18 +41,16 @@ where
 }
 
 
-#[allow(dead_code)]
 pub fn cust_round(x: f64) -> f64 {
     let a = 10_i32.pow(9) as f64;
     (x * a).round().trunc() / a
 }
 
-#[allow(dead_code)]
 fn get_mid(min: &f64, max: &f64) -> f64 {
     (max + min) / 2_f64
 }
 
-#[allow(dead_code)]
+#[allow(many_single_char_names)]
 fn calc(x: f64, a: &f64, b: &f64, c: &f64, d: &f64) -> f64 {
     (a * x) + (b * x.powf(3_f64).sqrt()) - (c * E.powf((-x) / 50_f64)) - d
 }

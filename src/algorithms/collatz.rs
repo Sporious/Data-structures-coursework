@@ -12,7 +12,7 @@ pub fn collatz(mut a: i32) -> i32 {
 }
 fn collatz_impl(i: &mut i32) {
     if *i % 2 == 0 {
-        *i = *i / 2;
+        *i /= 2;
     } else {
         *i = 3 * *i + 1;
     }
