@@ -1,5 +1,6 @@
 #[cfg(test)]
 mod tests;
+pub mod neumanns;
 
 extern crate num;
 extern crate round;

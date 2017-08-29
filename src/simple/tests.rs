@@ -6,3 +6,7 @@ fn test_f_to_c() {
 fn test_c_to_f() {
     assert_eq!(super::c_to_f(0), 32_f64)
 }
+#[test]
+fn test_neumanns() {
+    assert_eq!(super::neumanns::neumann_unique_test(5761), 88);
+}
