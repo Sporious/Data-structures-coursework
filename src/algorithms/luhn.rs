@@ -58,15 +58,14 @@ impl Card {
             }
             self.vec = a;
         }
-
     }
 }
-pub fn check(v: &Vec<u8>) -> bool {
+pub fn check(v: &[u8]) -> bool {
     let total = total(v);
-    if total % 10 == 0 { true } else { false }
+    //if total % 10 == 0 { true } else { false }
+    total % 10 == 0
 }
-
-pub fn total(v: &Vec<u8>) -> u32 {
+pub fn total(v: &[u8]) -> u32 {
     let mut total = 0;
     let mut even = false;
     let len = v.len();
@@ -82,5 +81,4 @@ pub fn total(v: &Vec<u8>) -> u32 {
         even = !even;
     }
     total
-
 }
