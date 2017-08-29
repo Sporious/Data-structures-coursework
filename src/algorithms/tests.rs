@@ -42,27 +42,6 @@ fn test_linear_random() {
     assert_eq!(super::linear_random::random(3, 7, 12, 1, 2), 1);
     assert_eq!(super::linear_random::random(2, 3, 15, 8, 10), 11);
 }
-/*Luhns - Incomplete
-#[test]
-fn test_luhns_valid_number() {
-    use super::luhn::*;
-    let a = Card::new("79927398713");
-    assert!(a.valid);
-}
-#[test]
-fn test_luhns_invalid_number() {
-    use super::luhn::*;
-    let a = Card::new("79927398714");
-    assert!(!a.valid);
-}
-#[test]
-fn test_luhns_heal() {
-    use super::luhn::*;
-    let mut a = Card::new("799273987j3");
-    a.heal();
-    assert!(a.valid);
-}
-*/
 #[test]
 fn test_luhn_verify() {
     use super::luhn::*;

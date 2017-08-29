@@ -62,7 +62,6 @@ impl Card {
 }
 pub fn check(v: &[u8]) -> bool {
     let total = total(v);
-    //if total % 10 == 0 { true } else { false }
     total % 10 == 0
 }
 pub fn total(v: &[u8]) -> u32 {
