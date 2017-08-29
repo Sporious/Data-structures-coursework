@@ -2,7 +2,6 @@
 pub mod tests;
 
 use std::cmp::PartialOrd;
-//#[allow(dead_code)]
 pub fn bubble_sort<T>(v: &mut [T])
 where
     T: PartialOrd,
@@ -61,7 +60,6 @@ where
     k
 }
 
-#[allow(dead_code)]
 pub fn insertion_sort<T>(v: &mut [T])
 where
     T: PartialOrd,
@@ -85,7 +83,6 @@ where
         }
     }
 }
-#[allow(dead_code)]
 pub fn selection_sort<T>(v: &mut [T])
 where
     T: PartialOrd,
@@ -109,7 +106,6 @@ where
         *n += 1;
     }
 }
-#[allow(dead_code)]
 pub fn quicksort_1(min: usize, max: usize, v: &mut Vec<i32>) {
     let pivot = v[max - 1];
     let mut wall = min;
@@ -170,8 +166,3 @@ pub fn quicksort_2(left: usize, right: usize, v: &mut Vec<i32>) {
 
     }
 }
-
-//#[allow(dead_code)]
-//fn merge_sort<T>(v: &mut [T])
-//where
-//    T: PartialOrd,
