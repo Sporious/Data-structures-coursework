@@ -64,20 +64,12 @@ pub fn insertion_sort<T>(v: &mut [T])
 where
     T: PartialOrd,
 {
-
-    //Loop over the vector, inserting data in correct order
     for i in 1..v.len() {
-        //Loop over the already sorted subvector and insert i at right place
         for j in 0..i {
-            //Element i is smaller than element j, insert i before j and break loop
-
             if v[j] > v[i] {
-                //Move element i back in vector by swapping until it reaches correct position
                 for k in (j..i).rev() {
                     v.swap(k + 1, k);
                 }
-
-                //No need to keep looping j, break out
                 break;
             }
         }
@@ -164,4 +156,47 @@ pub fn quicksort_2(left: usize, right: usize, v: &mut Vec<i32>) {
         lt
 
     }
+}
+pub fn merge_sort<T: PartialOrd + Clone>(v: Vec<T>) -> Vec<T> {
+    let size = v.len();
+    if size < 2 {
+        v
+    } else {
+        let mid = size / 2;
+        let (mut l, mut r) = (Vec::new(), Vec::new());
+        for (index, i) in v.iter().enumerate() {
+            if index < mid {
+                l.push( i.clone());
+            } else {
+                r.push(i.clone());
+            }
+        }
+        let left = merge_sort(l);
+        let right = merge_sort(r);
+        merge(left, right)
+    }
+}
+fn merge<T:PartialOrd + Clone> (left: Vec<T>, right: Vec<T>) -> Vec<T> {
+    let mut result: Vec<T> = Vec::new();
+    let (mut i, mut j) = (0, 0);
+
+    while {
+        i < left.len() && j < right.len()
+    }
+    {
+        if left[i] <= right[i] {
+            result.push(left[i].clone());
+            i += 1;
+        } else {
+            result.push(right[j].clone());
+            j += 1;
+        }
+    }
+    for value in left.iter().skip(i) {
+        result.push(value.clone());
+    }
+    for value in right.iter().skip(j) {
+        result.push(value.clone());
+    }
+    result
 }
