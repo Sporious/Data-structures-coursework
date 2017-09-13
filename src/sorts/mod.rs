@@ -158,17 +158,17 @@ pub fn quicksort_2(left: usize, right: usize, v: &mut Vec<i32>) {
     }
 }
 pub fn merge_sort<T: PartialOrd + Clone>(v: Vec<T>) -> Vec<T> {
-    let size = v.len();
-    if size < 2 {
-        v
+    if v.len() < 2 {
+        return v;
     } else {
-        let mid = size / 2;
-        let (mut l, mut r) = (Vec::new(), Vec::new());
-        for (index, i) in v.iter().enumerate() {
-            if index < mid {
-                l.push( i.clone());
+        let mut l = Vec::new();
+        let mut r = Vec::new();
+        let mid = v.len() / 2;
+        for i in 0..v.len() {
+            if i < mid {
+                l.push(v[i].clone());
             } else {
-                r.push(i.clone());
+                r.push(v[i].clone());
             }
         }
         let left = merge_sort(l);
@@ -176,27 +176,28 @@ pub fn merge_sort<T: PartialOrd + Clone>(v: Vec<T>) -> Vec<T> {
         merge(left, right)
     }
 }
-fn merge<T:PartialOrd + Clone> (left: Vec<T>, right: Vec<T>) -> Vec<T> {
-    let mut result: Vec<T> = Vec::new();
-    let (mut i, mut j) = (0, 0);
 
-    while {
-        i < left.len() && j < right.len()
-    }
-    {
-        if left[i] <= right[i] {
-            result.push(left[i].clone());
+fn merge<T: PartialOrd + Clone>(left: Vec<T>, right: Vec<T>) -> Vec<T> {
+    let mut out_vec: Vec<T> = Vec::new();
+    let mut i = 0;
+    let mut j = 0;
+    while i < left.len() && j < right.len() {
+        if left[i] < right[j] {
+            out_vec.push(left[i].clone());
             i += 1;
         } else {
-            result.push(right[j].clone());
+            out_vec.push(right[j].clone());
             j += 1;
         }
     }
-    for value in left.iter().skip(i) {
-        result.push(value.clone());
+    while i < left.len() {
+        out_vec.push(left[i].clone());
+        i += 1;
     }
-    for value in right.iter().skip(j) {
-        result.push(value.clone());
+    while j < right.len() {
+        out_vec.push(right[j].clone());
+        j += 1;
     }
-    result
+    out_vec
 }
+

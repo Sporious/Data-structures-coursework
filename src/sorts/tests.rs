@@ -8,7 +8,11 @@ fn test_selection_sort() {
 fn test_merge_sort() {
     let a = vec![-1, -2, 3, 6, 3];
     let b = super::merge_sort(a);
+    
     assertions(&b);
+    let c = vec![1, 2, 1, 2, 3, 1];
+    let d = super::merge_sort(c);
+    assert_eq!(d, [1, 1, 1, 2, 2, 3]);
 }
 
 #[test]
